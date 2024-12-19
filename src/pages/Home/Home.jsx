@@ -15,7 +15,10 @@ import { Navigate } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <Navigate to={"/dashboard"}/>
+    <Navigate to={"/school-info"}/>
+
+    
+      {/* <Navigate to={"/dashboard"}/>  */}
       {/* <Navbar /> */}
 
       {/* <Hero /> */}

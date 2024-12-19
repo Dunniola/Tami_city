@@ -29,6 +29,13 @@ import BulkEmailDetails from "./pages/BulkEmails/BulkEmailDetails";
 import PublisherCodes from "./pages/PublisherCodes/PublisherCodes";
 import BannerAndVideo from "./pages/BannerAndVideo/BannerAndVideo";
 import ActiveCampaigns from "./pages/ActiveCampaigns/ActiveCampaigns";
+import StepOne from "./pages/SchoolInfo/StepOne";
+import StepTwo from "./pages/ContactDetails/StepTwo";
+import StepThree from "./pages/PrimaryContact/StepThree";
+import StepFour from "./pages/SchoolCode/StepFour";
+import Summary from "./pages/Summary/Summary";
+import SuccessMessage from "./pages/SuccessMessage/SuccessMessage";
+import { FormProvider } from "./context/FormContext";
 
 
 function App() {
@@ -37,6 +44,12 @@ function App() {
       <Route element={<Layout/>}>
         {/**Public Routes */}
         <Route index element={<Home />} />
+        <Route path='/school-info' element ={<StepOne/>}/>
+        <Route path='/contact-info' element ={<StepTwo/>}/>
+        <Route path='/primary-contact' element ={<StepThree/>}/>
+        <Route path='/school-code' element ={<StepFour/>}/>
+        <Route path='/summary' element ={<Summary/>}/>
+        <Route path='/success' element ={<SuccessMessage/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/email-verification" element={<EmailSent />} />
@@ -46,10 +59,15 @@ function App() {
         <Route path="/discover" element={<Discover />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />
+        <Route path="/" element={<BlogDetails />} />
+        <Route path="/" element ={<StepOne/>}/>
+        
+        
 
         {/*Protected Routes */}
+        
 
-        <Route element={<PrivateRoutes />}>
+        {/* <Route element={<PrivateRoutes />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/advertise" element={<Advertise />} />
         <Route path="/advertise/bulk-emails" element={<BulkEmails />} />
@@ -64,12 +82,14 @@ function App() {
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/marketplace" element={<Market />} />
-        <Route path="/active-campaigns" element={<ActiveCampaigns />} />
+        <Route path="/active-campaigns" element={<ActiveCampaigns />} /> */}
 
 
         {/* publisher routes */}
-        <Route path="/website-integration" element={<PublisherCodes />} />
-        </Route>
+        {/* <Route path="/website-integration" element={<PublisherCodes />} /> */}
+        {/* </Route> */}
+
+
        
       </Route>
     ),
@@ -78,8 +98,11 @@ function App() {
   return (
     <>
       {/* <Suspense fallback={<Loading />}> */}
-        <RouterProvider router={router} />
+      <FormProvider>
+      <RouterProvider router={router} />
       {/* </Suspense> */}
+      </FormProvider>
+        
     </>
   );
 }

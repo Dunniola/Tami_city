@@ -26,20 +26,23 @@ const Dashboard = () => {
     <>
       <Sidebar>
         <div className="p-6">
-          <div className="pt-10 grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 pt-10 lg:grid-cols-3">
             {dashCards?.map((i, index) => (
               <div
                 key={index}
-                className="rounded-2xl bg-white seye-shadow py-8 px-8"
+                className="px-8 py-8 bg-white rounded-2xl seye-shadow"
               >
                 <img src={i?.icon} className="w-[40px]" alt="" />
-                <p className="text-gray-500 py-3 text-sm">{i?.name}</p>
-                <p className="text-gray-500 text-lg font-semibold">
+                <p className="py-3 text-sm text-gray-500">{i?.name}</p>
+                <p className="text-lg font-semibold text-gray-500">
                   {i?.value}
                 </p>
               </div>
+
+             
             ))}
           </div>
+          
 
           <div className="lg:h-[75vh] h-[300px]  py-4 flex justify-center items-center bg-white mt-10 rounded-2xl seye-shadow">
           <DashChart/>
