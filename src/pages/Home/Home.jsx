@@ -1,38 +1,33 @@
-import React from "react";
-import Navbar from "../../components/General/Navbar";
-import Hero from "../../components/General/Hero";
-import Services from "../../components/General/Services";
-import Explore from "../../components/General/Explore";
-import Blog from "../../components/General/Blog";
-import Faq from "../../components/General/Faq";
-import Testimonials from "../../components/General/Testimonials";
-import Cta from "../../components/General/Cta";
-import Footer from "../../components/General/Footer";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductSection from "../../components/General/ProductSection";
-import FeaturedBlogs from "../../components/General/FeaturedBlogs";
-import { Navigate } from "react-router-dom";
+import AreaFocus from "../../components/General/AreaFocus";
+import { FaArrowCircleRight } from "react-icons/fa";
+import HeroSection from "../../components/General/HeroSection";
+import WhatWeDo from "../../components/General/WhatWeDo";
+import Blog from "../../components/General/Blog";
+import Footer from "../../components/General/Footer";
+import FAQ from "../../components/General/FAQ";
+
+// Reusable Section Card Component for Focus Areas and Products
 
 const Home = () => {
+ 
+
   return (
-    <>
-    <Navigate to={"/school-info"}/>
-
+    <div className="grid min-h-screen text-[1rem] overflow-x-hidden">
     
-      {/* <Navigate to={"/dashboard"}/>  */}
-      {/* <Navbar /> */}
-
-      {/* <Hero /> */}
-
-      {/* <Services /> */}
-      {/* <Explore />
-      <FeaturedBlogs/> */}
-      {/* <ProductSection/> */}
-      {/* <Blog /> */}
-      {/* <Testimonials /> */}
-      {/* <Faq /> */}
-      {/* <Cta /> */}
-      {/* <Footer /> */}
-    </>
+      <HeroSection/>
+       <AreaFocus/>
+    
+      <ProductSection/>
+      <WhatWeDo/>
+      <Blog/>
+      <FAQ/>
+      <Footer/>
+      </div>
+  
+   
   );
 };
 
