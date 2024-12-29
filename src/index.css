@@ -1,48 +1,41 @@
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./assets/helvetica-255/Helvetica.ttf') format('truetype');
-  }
-  
+  font-family: 'Helvetica';
+  src: url('./assets/helvetica-255/Helvetica.ttf') format('truetype');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+body {
+  background-image: url('./assets/images/backGroundImage2.jpg'); 
+  background-color: red;
+  background-size: cover;  
+  background-position: center;  
+  background-repeat: no-repeat;  
+  height: 100vh;  
+  margin: 0;  
+}
+.icon{
+ font-weight: lighter;
+ font-weight: normal;
+ filter: brightness(70%);
 
+}
 
-*{
-    font-family: 'Helvetica', sans-serif;
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 
-.hide-scrollbar {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-  /* Chrome, Safari, Edge */
-}
-
-/* Style scrollbars for the entire div */
-.nice-scrollbar {
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #1871ff transparent; /* Scrollbar color for Firefox */
-}
-
-.nice-scrollbar::-webkit-scrollbar {
-  width: 3px; /* Width of vertical scrollbar */
-  height: 3px; /* Height of horizontal scrollbar */
-}
-
-.nice-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #1871ff; /* Scrollbar thumb color */
-  border-radius: 30px; /* Rounded edges for a smoother look */
-}
-
-.nice-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* Track color */
+.nav-menu:hover .dropdown-menu{
+  display: block;
+  margin-top: 5px;
+  opacity: 1;
+  animation-duration: 5s;
+  transition: opacity 5s ease;
 }

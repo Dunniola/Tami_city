@@ -1,115 +1,141 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const ProductSection = () => {
-  return (
-    <>
-    <section>
-  <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <header className="text-center">
-      <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
+function ProductSection() {
+  const navigate = useNavigate();
+  const [activeContent, setActiveContent] = useState("sustainability");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-      <p className="mx-auto mt-4 max-w-md text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
-        dicta incidunt est ipsam, officia dolor fugit natus?
+  const images = [
+    "/src/assets/images/imageBg5.jpg",
+    "/src/assets/images/backGroundImage2.jpg",
+  ];
+
+  // Handle content change (on button click)
+  const handleContentChange = (contentType) => {
+    setActiveContent(contentType); // Change active content (either "sustainability" or "products")
+  };
+
+  // Sustainability Content
+  const sustainabilityContent = (
+    <div className="px-5 content-slide sm:px-10">
+      <h2 className="mb-4 text-2xl font-bold leading-tight text-gray-800 sm:text-3xl text-secondary">
+        Our Commitment to Sustainability
+      </h2>
+      <p className="mb-4 text-sm tracking-tight sm:text-base">
+        At Tami City, sustainability is at the heart of everything we do. As a company that exports high-quality agricultural products to international markets, we recognize our responsibility to not only provide exceptional products but to do so in a way that positively impacts the environment, society, and the global food system.
       </p>
-    </header>
+      <p className="text-sm tracking-tight sm:text-base">
+        We are committed to implementing sustainable practices across every aspect of our business from the way we source and grow our products to how we manage our supply chains and engage with local communities. Our goal is to create long-term value not just for our customers, but for the planet and future generations.
+      </p>
+    </div>
+  );
 
-    <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <li>
-        <a href="#" className="group block overflow-hidden">
-          <img
-            src="https://furniture123.co.uk/Files/images/f123/image-hubs/sale-page/furniture-sale-livingroom.jpg"
-            alt=""
-            className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
+  // Products Content
+  const productsContent = (
+    <div className="px-5 content-slide sm:px-10">
+      <h2 className="mb-4 text-2xl font-bold leading-tight sm:text-3xl text-secondary">
+        Our Products
+      </h2>
+      <p className="mb-4 text-sm tracking-tight sm:text-base">
+        At Tami City, we offer a diverse range of high-quality, sustainably sourced agricultural products designed to meet the growing demands of global markets. Our products include Cassava Flour, Cocoa, Cashew Nuts, and Plantain Flour—each crafted with care and expertise to provide exceptional quality and nutritional benefits.
+      </p>
+      <p className="text-sm tracking-tight sm:text-base">
+        We are committed to sustainable sourcing and ensuring that our products meet the highest standards of excellence. By supporting local farmers and implementing ethical practices, we strive to make a positive impact on both the environment and the communities we work with.
+      </p>
+    </div>
+  );
 
-          <div className="relative bg-white pt-3">
-            <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveContent((prevContent) =>
+        prevContent === "sustainability" ? "products" : "sustainability"
+      );
+    }, 5000); // Switch every 5 seconds
 
-            <p className="mt-2">
-              <span className="sr-only"> Regular Price </span>
+    return () => clearInterval(interval);
+  }, []);
 
-              <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
+  useEffect(() => {
+    if (activeContent === "sustainability") {
+      setCurrentImageIndex(0);
+    } else if (activeContent === "products") {
+      setCurrentImageIndex(1);
+    }
+  }, [activeContent]);
+
+  return (
+    <div>
+      {/* Sliding Content (Sustainability vs Products) */}
+      <section className="flex flex-col gap-5 mt-12 md:flex-row lg:gap-8">
+        <div className="relative flex-1">
+          {/* Image Slideshow with Sliding Effect */}
+          <div
+            className={`relative w-full h-[50vh] lg:h-[60vh] overflow-hidden transition-transform duration-1000 ease-in-out ${
+              activeContent === "sustainability" ? "transform-x-[-100%]" : "transform-x-0"
+            }`}
+          >
+            <img
+              src={images[currentImageIndex]}
+              alt="Background"
+              className="absolute object-cover w-full h-full transition-opacity duration-1000 opacity-100"
+            />
           </div>
-        </a>
-      </li>
 
-      <li>
-        <a href="#" className="group block overflow-hidden">
-          <img
-            src="https://www.roselandfurniture.com/cdn/shop/files/RFM02-03-002-102---Alfie-3-Seater-Sofa-Mink---Life1.jpg?v=1717602097&width=400"
-            alt=""
-            className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
-
-          <div className="relative bg-white pt-3">
-            <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
-
-            <p className="mt-2">
-              <span className="sr-only"> Regular Price </span>
-
-              <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
+          {/* Image Navigation Buttons */}
+          <div className="flex justify-center gap-6 mt-6 mb-10 lg:gap-10">
+            <button
+              onClick={() => handleContentChange("sustainability")}
+              className={`h-8 w-8 text-white rounded-full ${
+                activeContent === "sustainability" ? "bg-green-800" : "bg-gray-300"
+              }`}
+            >
+              1
+            </button>
+            <button
+              onClick={() => handleContentChange("products")}
+              className={`h-8 w-8 text-white rounded-full ${
+                activeContent === "products" ? "bg-green-800" : "bg-gray-300"
+              }`}
+            >
+              2
+            </button>
           </div>
-        </a>
-      </li>
+        </div>
 
-      <li>
-        <a href="#" className="group block overflow-hidden">
-          <img
-            src="https://static.wixstatic.com/media/a8f2a1_cdf878c3442f4abd8a2eb8f26307d1f6~mv2_d_1608_1324_s_2.jpeg/v1/fill/w_520,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a8f2a1_cdf878c3442f4abd8a2eb8f26307d1f6~mv2_d_1608_1324_s_2.jpeg"
-            alt=""
-            className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
+        {/* Content Area with Sliding Effect */}
+        <div
+          className={`flex-1 transition-transform duration-1000 ease-in-out ${
+            activeContent === "sustainability" ? "transform-x-[-100%]" : "transform-x-0"
+          }`}
+        >
+          {activeContent === "sustainability" ? sustainabilityContent : productsContent}
 
-          <div className="relative bg-white pt-3">
-            <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
+          {/* Read More Button */}
+          {activeContent === "sustainability" && (
+            <div
+              className="flex items-center w-full gap-6 mt-5 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary max-md:px-10"
+              onClick={() => navigate("/about/sustainability")}
+            >
+              <FaArrowCircleRight size={35} />
+              <span className="hover:underline">Read More on Sustainability</span>
+            </div>
+          )}
 
-            <p className="mt-2">
-              <span className="sr-only"> Regular Price </span>
-
-              <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#" className="group block overflow-hidden">
-          <img
-            src="https://ueeshop.ly200-cdn.com/u_file/UPAB/UPAB937/2308/photo/a9046895b9.jpg"
-            alt=""
-            className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-          />
-
-          <div className="relative bg-white pt-3">
-            <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
-              Basic Tee
-            </h3>
-
-            <p className="mt-2">
-              <span className="sr-only"> Regular Price </span>
-
-              <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-            </p>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div className='flex justify-center mb-10'>
-        <button className="bg-inherit border border-gray-700 py-2 px-8">View More</button>
-  </div>
-</section>
-    </>
-  )
+          {activeContent === "products" && (
+            <div
+              className="flex items-center w-full gap-4 mt-10 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary max-md:px-10"
+              onClick={() => navigate("/products")}
+            >
+              <FaArrowCircleRight size={30} />
+              <span className="hover:underline">Read More on Products</span>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default ProductSection
+export default ProductSection;

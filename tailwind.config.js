@@ -8,39 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#1871ff',
-        'secondary': '#121212',
-        'tetiary': '#FCFF53',
-        'sorta-green': '#000F19',
-        'sorta-blue': '#113C59'
+        'primary': 'hsl(45, 100%, 70%)',
+        'secondary': 'hsl(120, 50%, 20%) ',
+        'tertiary' : "hsl(0, 0%, 255%)",
+          "gold" : "hsl(45, 100%, 80%)"
+
         
       },
-      fontFamily : {
-        custom : ["Ubuntu, sans-serif"]
-      },
-      
-
-      colors:{
-        Primary : {
-          veryDarkGray: "hsl(213, 96%, 18%)",
-          blue: "hsl(243, 100%, 62%)",
-          purplishBlue: "hsl(228, 100%, 84%)",
-          lightBlue: "hsl(206, 94%, 87%)",
-          red: "hsl(354, 84%, 57%)",
-          darkBlue : "hsl(220, 100%, 15%)",
-        },
-
-      Neutral : {
-        darkGray:"hsl(231, 11%, 63%)",
-        veryLightGray: "hsl(229, 24%, 87%)",
-        veryVeryLightGray: "hsl(217, 100%, 97%)",
-        grayishWhite: "hsl(231, 100%, 99%)",
-        White: "hsl(0, 0%, 100%)",
-      },
-
-
-      }
-
+    
     },
   },
   plugins: [],
