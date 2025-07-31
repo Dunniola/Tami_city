@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react' // Correct plugin name is `@vitejs/plugin-react`
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  base: '/Tami_city/', // Make sure this matches your GitHub repo name
+
+  plugins: [react()],
+
   build: {
     rollupOptions: {
       output: {
@@ -10,9 +14,8 @@ export default defineConfig({
         }
       }
     },
-    chunkSizeWarningLimit: 1000, // Optional: suppress large chunk warning
+    chunkSizeWarningLimit: 1000
   },
-  assetsInclude: ['**/*.JPG', '**/*.PNG'],
-  base: '/Tami_city/',
-  plugins: [react()],
+
+  assetsInclude: ['**/*.JPG', '**/*.PNG']
 })
