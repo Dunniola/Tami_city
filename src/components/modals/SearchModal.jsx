@@ -19,11 +19,11 @@ const SearchModal = ({ isOpen, onClose }) => {
       <ModalOverlay />
       <ModalContent
         backgroundColor="black"
-        className="inset-0 flex flex-row max-w-lg flex-w-2/4"
+        className="inset-0 flex flex-row max-w-lg font-sans flex-w-2/4"
       >
-        <ModalHeader className="text-gold flex justify-between text-[1.2rem]">
+        <ModalHeader className="text-gold flex justify-between text-[1.2rem] text-primary">
           What do you want to discover?
-          <ModalCloseButton className="text-primary border-2 border-secondary " />
+          <ModalCloseButton className="border-2 text-primary border-secondary " />
         </ModalHeader>
 
         <ModalBody>

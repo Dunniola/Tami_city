@@ -1,7 +1,18 @@
 import { defineConfig } from 'vite'
-import Inspect from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react' // Correct plugin name is `@vitejs/plugin-react`
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [Inspect()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000, // Optional: suppress large chunk warning
+  },
+  assetsInclude: ['**/*.JPG', '**/*.PNG'],
+  base: '/Tami_city/',
+  plugins: [react()],
 })

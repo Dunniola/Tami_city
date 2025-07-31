@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Icon from "/src/assets/icons/tamoi ws.png";
+import Icon from "/src/assets/icons/tamoi ws.png"; // Icon for the navbar logo
 import { useDisclosure } from "@chakra-ui/react";
-import SearchModal from "../modals/SearchModal";
-import { BiSearchAlt } from "react-icons/bi";
-import MobileNavbar from "../mobile/MobileNav";
+import SearchModal from "../modals/SearchModal"; // Modal for search functionality
+import { BiSearchAlt } from "react-icons/bi"; // Search icon
+import MobileNavbar from "../mobile/MobileNav"; // Mobile navbar component
 
 function Navbar({ black }) {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -12,7 +12,7 @@ function Navbar({ black }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { pathname } = location;
 
-  // Effect to animate the dropdown
+  // Effect to animate dropdowns
   useEffect(() => {
     const dropdownElements = document.querySelectorAll(".dropdown-menu");
     dropdownElements.forEach((el) => {
@@ -37,26 +37,26 @@ function Navbar({ black }) {
     <>
       <SearchModal isOpen={isOpen} onClose={onClose} />
 
-      <div className="overflow-x-hidden overflow-y-hidden">
+      <div className="overflow-x-hidden overflow-y-hidden font-sans">
         <header
-          className={`max-md:hidden ${isOpen ? "bg-opacity-80" : "opacity-100"} shadow-lg overflow-hidden`}
+          className={`max-md:hidden ${isOpen ? "bg-opacity-40" : "opacity-100"} shadow-lg overflow-hidden`}
         >
           <nav className="fixed top-0 left-0 z-10 flex items-center justify-between w-full px-2 bg-white shadow-lg opacity-100">
             <Link to={"/"}>
-            <div className="mx-6">
-              <img
-                src={Icon}
-                alt="TamiCity-icon"
-                className="w-[7rem] cursor-pointer"
-              />
-            </div>
+              <div className="mx-6">
+                <img
+                  src={Icon}
+                  alt="TamiCity-icon"
+                  className="w-[7rem] cursor-pointer"
+                />
+              </div>
             </Link>
 
-            <ul className="flex whitespace-nowrap items-center py-2  font-bold text-center md:text-[0.8rem] gap-2 shadow-lg ">
+            <ul className="flex whitespace-nowrap items-center py-2 font-bold text-center md:text-[0.8rem] gap-2 shadow-lg">
               {/* HOME */}
               <Link to={"/"} onMouseEnter={() => setActiveDropdown("home")}>
                 <li
-                  className={` border-y-4 border-transparent w-[90px] ${
+                  className={`border-y-4 border-transparent w-[90px] ${
                     pathname === "/" ? "border-b-primary" : ""
                   } hover:border-b-primary hover:text-secondary hover:border-dashed group hover:font-bold`}
                 >
@@ -68,9 +68,7 @@ function Navbar({ black }) {
                     } dropdown-menu z-10`}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <div
-                      className={`items-center font-normal bg-white w-[10rem] py-1 ${pathname === "/" ? "border-b-primary" : ""} text-center rounded z-1 text-[1rem]`}
-                    >
+                    <div className="items-center font-normal bg-white w-[10rem] py-1 text-center rounded z-1 text-[1rem]">
                       Home
                     </div>
                   </div>
@@ -80,11 +78,14 @@ function Navbar({ black }) {
               {/* ABOUT US */}
               <Link to={"/about"} onMouseEnter={() => setActiveDropdown("about")}>
                 <li
-                  className={` border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group text-secondary hover:font-bold ${
+                  className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group  hover:font-bold ${
                     pathname === "/about" ||
                     pathname === "/about/our-story" ||
                     pathname === "/about/team" ||
-                    pathname === "/about/sustainability"
+                    pathname === "/about/sustainability" ||
+                    pathname === "/about/our-mission/sustainable-agriculture" ||
+                    pathname === "/about/our-mission/enhancing-livelihoods" ||
+                    pathname === "/about/our-mission/innovating-for-crop-resilience"
                       ? "border-b-primary"
                       : ""
                   }`}
@@ -97,20 +98,22 @@ function Navbar({ black }) {
                   >
                     <div className="w-[12rem] px-[2rem] py-1 font-normal bg-white rounded-lg text-start text-[1rem]">
                       <Link to={"/about/our-story"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[90px]">
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[90px]">
                           Our Story
                         </li>
                       </Link>
-                      <Link to={"/about/team"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
-                          Meet Our Team
-                        </li>
-                      </Link>
+                      
                       <Link to={"/about/sustainability"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Sustainability
                         </li>
                       </Link>
+                      <Link to={"/about/areas-of-focus"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                         Areas of Focus
+                        </li>
+                      </Link>
+                      
                     </div>
                   </div>
                 </li>
@@ -119,35 +122,46 @@ function Navbar({ black }) {
               {/* PRODUCTS */}
               <Link to={"/products"} onMouseEnter={() => setActiveDropdown("products")}>
                 <li
-                  className={` border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
+                  className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/products" ||
-                    pathname === "/products/categories" ||
-                    pathname === "/products/details" ||
-                    pathname === "/products/quote"
-                      ? "border-b-primary"
+                    pathname === "/products/cocoa" ||
+                    pathname === "/products/coffee" ||
+                    pathname === "/products/cassava" || pathname === "/products/cashew"|| pathname === "/products/risk-management" || pathname === "/products/sustainability"                      ? "border-b-primary"
                       : ""
                   }`}
                 >
                   PRODUCTS
                   <div
                     id="products"
-                    className="absolute py-2 top-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dropdown-menu text-start z-10"
+                    className="absolute py-1 top-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dropdown-menu text-start z-10"
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <div className="items-center px-10 py-1 font-normal bg-white rounded-lg text-[1rem]">
-                      <Link to={"/products/categories"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
-                          Product Categories
+                    <div className="items-center px-5 py-1 font-normal bg-white rounded-lg text-[1rem]">
+                      <Link to={"/products/cocoa"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                          Cocoa
                         </li>
                       </Link>
-                      <Link to={"/products/details"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
-                          Product Details
+                      <Link to={"/products/cassava"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                        Cassava
                         </li>
                       </Link>
-                      <Link to={"/products/quote"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                          Request a Quote
+                      <Link to={"/products/coffee"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                         Coffee
+                        </li>
+                      </Link>
+
+                      <Link to={"/products/cashew"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                         Cashew
+                        </li>
+                      </Link>
+
+                      <Link to={"/products/risk-management"}>
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                        Risk Management
                         </li>
                       </Link>
                     </div>
@@ -158,7 +172,7 @@ function Navbar({ black }) {
               {/* EXPORT PROCESS */}
               <Link to={"/export-process"} onMouseEnter={() => setActiveDropdown("export")}>
                 <li
-                  className={` border-y-4 border-transparent w-[110px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
+                  className={`border-y-4 border-transparent w-[110px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/export-process" ||
                     pathname === "/export-process/how-it-works" ||
                     pathname === "/export-process/shipping" ||
@@ -173,19 +187,19 @@ function Navbar({ black }) {
                     className="absolute py-2 top-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dropdown-menu z-10"
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <div className="items-center max-w-lg py-1 bg-white rounded pl-[2rem] pr-[2rem] font-normal text-start text-[1rem]">
+                    <div className="items-center max-w-lg py-1 bg-white rounded pl-[1rem] pr-[1rem] font-normal text-start text-[1rem]">
                       <Link to={"/export-process/how-it-works"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[150px]">
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[150px]">
                           How It Works
                         </li>
                       </Link>
                       <Link to={"/export-process/shipping"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Shipping & Delivery
                         </li>
                       </Link>
                       <Link to={"/export-process/documentation"}>
-                        <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                        <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Export Documentation
                         </li>
                       </Link>
@@ -197,10 +211,8 @@ function Navbar({ black }) {
               {/* CONTACT */}
               <Link to={"/contact"} onMouseEnter={() => setActiveDropdown("contact")}>
                 <li
-                  className={` border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
-                    pathname === "/contact" || pathname === "/contact"
-                      ? "border-b-primary"
-                      : ""
+                  className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
+                    pathname === "/contact" ? "border-b-primary" : ""
                   }`}
                 >
                   CONTACT
@@ -221,7 +233,7 @@ function Navbar({ black }) {
               {/* RESOURCES */}
               <Link to={"/resources"} onMouseEnter={() => setActiveDropdown("resources")}>
                 <li
-                  className={` border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
+                  className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/resources" ||
                     pathname === "/resources/blog" ||
                     pathname === "/resources/FAQs"
@@ -232,17 +244,17 @@ function Navbar({ black }) {
                   RESOURCES
                   <div
                     id="resources"
-                    className="absolute py-2 top-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dropdown-menu z-10"
+                    className="absolute py-1 top-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dropdown-menu z-10"
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <div className="w-[8rem] py-1 font-normal bg-white text-center rounded-lg text-[1rem]">
-                      <Link to={"/resources/blog"}>
-                        <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
+                    <div className="w-[8rem] font-normal bg-white  rounded-lg text-[1rem]">
+                      {/* <Link to={"/resources/blog"}>
+                        <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Blog and Articles
                         </li>
-                      </Link>
+                      </Link> */}
                       <Link to={"/resources/FAQs"}>
-                        <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed ">
+                        <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           FAQs
                         </li>
                       </Link>

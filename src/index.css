@@ -1,41 +1,24 @@
-@font-face {
-  font-family: 'Helvetica';
-  src: url('./assets/helvetica-255/Helvetica.ttf') format('truetype');
-}
+/* Import Google Font - Plus Jakarta Sans (optional if you reference it in Tailwind config) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+/* Tailwind CSS Base, Components, and Utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Optional: Apply font family globally using Tailwind’s font class */
 
-body {
-  background-image: url('./assets/images/backGroundImage2.jpg'); 
-  background-color: red;
-  background-size: cover;  
-  background-position: center;  
-  background-repeat: no-repeat;  
-  height: 100vh;  
-  margin: 0;  
-}
-.icon{
- font-weight: lighter;
- font-weight: normal;
- filter: brightness(70%);
-
+*{
+  font-family:'Plus Jakarta Sans', sans-serif ;
+  
 }
 
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Optional: Transition effect example for button */
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-
-
-.nav-menu:hover .dropdown-menu{
-  display: block;
-  margin-top: 5px;
-  opacity: 1;
-  animation-duration: 5s;
-  transition: opacity 5s ease;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }

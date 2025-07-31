@@ -1,89 +1,205 @@
+// src/components/Footer.js
+import React from "react";
+import { FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
+import { AiOutlineArrowUp } from "react-icons/ai";
+import Icon from "/src/assets/icons/tamoi ws.png";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 
-import React, { useState } from 'react';
-
-function Footer() {
-  const [email, setEmail] = useState('');
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+const Footer = () => {
+  const handleScrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    // Handle email subscription logic here
-    console.log('Subscribed with email:', email);
-  };
-
   return (
-    <footer className="px-3 py-8 text-white bg-green-950">
-      <div className="container mx-auto">
-        {/* Grid Layout with responsive column sizes */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold">TamiCity</h3>
-            <p className="text-sm">Sustainably sourced agricultural products from Africa. Connecting farmers and global markets.</p>
-            <p className="text-sm"> Lagos, Nigeria</p>
-            <p className="text-sm">Email: <a href="mailto:enquiries@tamicity.com" className="text-blue-400 hover:underline">info@tamicity.com</a></p>
-            <p className="text-sm">Tel: +234 8107843355</p>
-          </div>
+    <footer className="w-full py-8 text-white ">
+      <div className="container text-[0.95rem] ">
+        {/* Newsletter Section */}
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/about" className="hover:text-blue-400">About Us</a></li>
-              <li><a href="/products" className="hover:text-blue-400">Our Products</a></li>
-              <li><a href="/export" className="hover:text-blue-400">Export Process</a></li>
-              <li><a href="/blog" className="hover:text-blue-400">Blog</a></li>
-              <li><a href="/faqs" className="hover:text-blue-400">FAQs</a></li>
-              <li><a href="/contact" className="hover:text-blue-400">Contact Us</a></li>
-              <li><a href="/privacy-policy" className="hover:text-blue-400">Privacy Policy</a></li>
-            </ul>
-          </div>
+        {/* Footer Main Content */}
+        <div className="grid md:grid-cols-4 w-screen  bg-green-950 px-[2rem] py-[5rem] ">
+          <div className="mr-8 md:border-r border-r-gray-500">
+            <div>
+              <img src={Icon} alt="" className="w-[10rem]" />
+            </div>
 
-          {/* Social Media */}
-          <div className="space-y-2 ">
-            <h4 className="text-lg font-semibold">Stay Connected</h4>
-            <div className="flex space-x-2 text-[0.9rem">
-              <a href="https://twitter.com/tamicity" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">Twitter</a>
-              <a href="https://facebook.com/tamicity" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">Facebook</a>
-              <a href="https://linkedin.com/company/tamicity" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">LinkedIn</a>
-              <a href="https://youtube.com/c/TamiCity" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">YouTube</a>
+            <div class="contact-info mt-6 py-5 leading-[3rem] ">
+              <h2 className="font-bold text-[1.2rem]">Tamicity Headquarters</h2>
+              <p>
+                <strong>Address:</strong> Km 16 Free Trade zone. Ibeju lekki,
+                Lagos, Nigeria.
+              </p>
+              <p>
+                <strong>Tel:</strong> +234 8155781237{" "}
+              </p>
+              <p>
+                <strong>Mobile:</strong> 09092451507
+              </p>
+
+              <a
+                href= "https://mail.google.com/mail/?view=cm&fs=1&to=tamicity@gmail.com" 
+                target="_blank"
+                rel="noopener noreferrer "
+                className="hover:underline"
+              >
+                tamicity@gmail.com
+              </a>
+            </div>
+            <hr className="mt-5 border-t-2 border-gray-300 opacity-15 md:hidden" />
+          </div>
+          {/* Products Section */}
+          <div className="flex-1 md:border-r md:border-r-gray-500 mr-9 ">
+            <div className="leading-8 ">
+              <h3 className="mb-2 text-xl font-semibold max-md:mt-10">
+                Products
+              </h3>
+              <ul>
+                <Link to={"/products/cassava"}>
+                  <li className="hover:underline"> Cassava</li>
+                </Link>
+
+                <Link to={"/products/cocoa"}>
+                  <li className="hover:underline"> Cocoa</li>
+                </Link>
+
+                <Link to={"/products/cashew"}>
+                  <li className="hover:underline"> Cashew</li>
+                </Link>
+
+                <Link to={"/products/coffee"}>
+                  <li className="hover:underline"> Coffee</li>
+                </Link>
+              </ul>
+            </div>
+            <hr className="mt-5 border-t-2 border-gray-300 opacity-15 md:hidden" />
+
+            {/* Resources Section */}
+            <div className="my-20 leading-8 max-md:mt-10 ">
+              <h3 className="text-xl font-semibold">Resources</h3>
+              <ul>
+                {/* <Link to={"/resources/blog"}>
+                  <li className="hover:underline">Blogs and Articles</li>
+                </Link> */}
+                <Link to={"/resources/FAQS"}>
+                  <li className="hover:underline"> FAQS</li>
+                </Link>
+              </ul>
             </div>
           </div>
+          <hr className="mt-5 border-t-2 border-gray-300 opacity-15 md:hidden" />
 
-          {/* Newsletter Subscription */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Newsletter</h4>
-            <p className="text-sm">Want to stay updated with the latest from TamiCity? Subscribe to our newsletter!</p>
-            <form onSubmit={handleSubscribe} className="flex flex-col space-y-2">
-              <input
-                type="email"
-                value={email}
-                onChange={handleEmailChange}
-                placeholder="Your email"
-                className="p-2 border border-gray-300 rounded-md"
-                required
-              />
-              <button type="submit" className="py-2 text-white rounded-md bg-primary hover:bg-blue-600">Subscribe</button>
-            </form>
+          <div className="flex-1">
+            {/* Top Commodities Section */}
+
+            {/* About Us Section */}
+            <div className="leading-8 outline-none ">
+              <h3 className="mb-2 text-xl font-semibold max-md:mt-10">
+                About Us
+              </h3>
+              <ul>
+                <Link to={"/about/our-story"}>
+                  <li className="hover:underline"> Our Story</li>
+                </Link>
+
+                {/* <Link to={"/about/team"}>
+                  <li className="hover:underline"> Our Team</li>
+                </Link> */}
+
+                <Link to={"/about"}>
+                  <li className="hover:underline"> About</li>
+                </Link>
+
+                <Link to={"/contact"}>
+                  <li className="hover:underline"> Contact Us</li>
+                </Link>
+
+                {/* <li><a href="#partnerships" className="hover:underline ">Partnerships</a></li> */}
+              </ul>
+            </div>
+            <hr className="mt-6 border-t-2 border-gray-300 opacity-15 md:hidden" />
+          </div>
+
+          <div className="relative leading-8 border-gray-500 max-md:grid max-md:mt-10 md:pl-5 md:border-l ">
+            <div className="mb-8">
+              <h2 className="mb-4 text-2xl font-semibold">Newsletter</h2>
+              <p className="mb-6">
+                Get TamiCity updates and industry news straight to your inbox.
+              </p>
+              <div className="grid gap-6 text-start">
+                <input
+                  type="email"
+                  placeholder="name@company.com"
+                  className="p-2 font-semibold border-2 border-gray-300 rounded-md text-secondary"
+                />
+                <button className="px-5 py-1  rounded-md bg-primary text-secondary font-semibold w-[8rem]">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+
+            {/* Footer Bottom */}
+            <div className="mt-8 ">
+              {/* Social Media Links */}
+              <div className="absolute flex gap-10 md:right-0 md:bottom-0 max-md:gap-6">
+                <a
+                  href="https://www.linkedin.com"
+                  className="text-white hover:text-gray-300"
+                >
+                  <FaLinkedin size={24} />
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  className="text-white hover:text-gray-300"
+                >
+                  <FaInstagram size={24} />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  className="text-white hover:text-gray-300"
+                >
+                  <FaTwitter size={24} />
+                </a>
+                <a
+                  href="https://www.facebook.com"
+                  className="text-white hover:text-gray-300"
+                >
+                  <FaFacebook size={24} />
+                </a>
+                <a
+                  href="https://wa.me/2348089535285" // replace with your actual WhatsApp number
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-300"
+                >
+                  <FaWhatsapp size={24} />
+                </a>
+              </div>
+
+              <div
+                className="fixed flex bg-white rounded-full shadow-lg cursor-pointer bottom-8 right-3 text-secondary"
+                onClick={handleScrollUp}
+              >
+                <AiOutlineArrowUp size={35} />
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="flex max-md:flex-col-reverse justify-between py-3 md:items-center font-semibold bg-white text-secondary px-[2rem]">
+        <p className="py-4 text-gray-500">
+          &copy; 2024 TamiCity. All rights reserved.
+        </p>
 
-        {/* Legal & Copyright */}
-        <div className="mt-12 text-sm text-center text-gray-400">
-          <p>© {new Date().getFullYear()} TamiCity. All Rights Reserved.</p>
-          <p>Site by TamiCity. Created with love & passion.</p>
-          <div className="mt-4 space-x-4">
-            <a href="/terms-of-use" className="hover:text-blue-400">Terms of Use</a>
-            <a href="/cookie-policy" className="hover:text-blue-400">Cookie Policy</a>
-            <a href="/ecoom-disclaimer" className="hover:text-blue-400">Disclaimer</a>
-          </div>
+        <div className="flex gap-5 md:px-5 ">
+          <p>Privacy</p>
+          <span>Disclaimer</span>
+          <p>Terms of Service</p>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

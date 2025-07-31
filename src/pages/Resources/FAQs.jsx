@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import {FaChevronDown} from "react-icons/fa"
+import { FaChevronDown } from "react-icons/fa";
+import Footer from '../../components/General/Footer';
+import faqImage from "/src/assets/images/faqs.JPG";
+
+// Background image import or URL
+
+ // replace with actual path
+
 function FAQs() {
-  // State to track the index of the active (expanded) question
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
@@ -31,48 +37,57 @@ function FAQs() {
     }
   ];
 
-  // Function to toggle the active question
   const toggleAnswer = (index) => {
-    // Toggle visibility of the clicked FAQ answer
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="py-8 bg-gray-100 faq-section mt-10">
-      <div className="max-w-screen-lg px-4 mx-auto">
-        <h2 className="mb-6 text-3xl font-semibold text-center">Frequently Asked Questions</h2>
+    <>
+      {/* FAQ Header with Background */}
+      <header
+        className="relative w-full h-[30rem] bg-center bg-cover flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${faqImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
 
-        {/* Displaying FAQ items */}
-        <div className="faq-list">
-          {faqs.map((faq, index) => (
-            <div key={index} className="mb-4 faq-item">
-              {/* FAQ Question */}
-              <div
-                className="cursor-pointer flex justify-between items-center text-xl font-semibold"
-                onClick={() => toggleAnswer(index)} // Toggle the answer on click
-              >
-                <span>{faq.question}</span>
-                {/* Arrow indicator */}
-                <span
-                  className={`transition-transform transform ${activeIndex === index ? 'rotate-180' : ''}`}>
-                    <FaChevronDown/>
-                </span>
+        {/* Header content */}
+        <div className="relative z-10 text-white text-center px-4">
+          <h1 className="text-4xl font-bold">Frequently Asked Questions</h1>
+          <p className="mt-2 text-lg font-medium">Find answers to common questions about our services and products</p>
+        </div>
+      </header>
+
+      {/* FAQ List */}
+      <section className="py-10 bg-gray-100 faq-section">
+        <div className="max-w-screen-lg px-4 mx-auto">
+          <div className="faq-list">
+            {faqs.map((faq, index) => (
+              <div key={index} className="mb-4 bg-white p-4 rounded-md shadow-sm">
+                <div
+                  className="cursor-pointer flex justify-between items-center text-xl font-semibold"
+                  onClick={() => toggleAnswer(index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className={`transition-transform transform ${activeIndex === index ? 'rotate-180' : ''}`}>
+                    <FaChevronDown />
+                  </span>
+                </div>
+                {activeIndex === index && (
+                  <div className="mt-2 text-gray-700">{faq.answer}</div>
+                )}
               </div>
-
-              {/* FAQ Answer (Only visible if this FAQ is active) */}
-              {activeIndex === index && (
-                <div className="mt-2 text-gray-700">{faq.answer}</div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* "Show More" button */}
-        <div className="mt-6 text-center">
-          {/* Optionally, add a "Show More" button to toggle more FAQs */}
-        </div>
-      </div>
-    </section>
+      <Footer/>
+    </>
   );
 }
 

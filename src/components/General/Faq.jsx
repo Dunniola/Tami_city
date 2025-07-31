@@ -43,13 +43,13 @@ function FAQ() {
 
   return (
     <section className="py-8 bg-gray-100 faq-section">
-      <div className="max-w-screen-lg mx-auto md:px-[2rem] max-md:px-5">
+      <div className="px-4 mx-auto sm:px-6 md:px-8">
         <h2 className="mb-6 text-3xl font-semibold text-center">Frequently Asked Questions</h2>
 
         {/* Displaying the first 3 FAQ items */}
-        <div className="faq-list">
+        <div className="w-full faq-list">
           {faqs.slice(0, 3).map((faq, index) => (
-            <div key={index} className="mb-4 faq-item">
+            <div key={index} className="mb-4  faq-item">
               {/* FAQ Question */}
               <div
                 className="flex items-center justify-between py-3 text-lg font-semibold transition-all border-b border-gray-300 rounded-md cursor-pointer sm:text-xl hover:bg-gray-50"
@@ -66,7 +66,7 @@ function FAQ() {
 
               {/* FAQ Answer (Only visible if this FAQ is active) */}
               {activeIndex === index && (
-                <div className="px-5 pb-3 mt-2 text-gray-700">{faq.answer}</div>
+                <div className="px-2 pb-3 mt-2 text-gray-700">{faq.answer}</div>
               )}
             </div>
           ))}
@@ -75,7 +75,7 @@ function FAQ() {
         {/* "Read More" button to navigate to the full FAQ page */}
         <div className="mt-6 text-center">
           <div
-            className="flex items-center justify-center w-full gap-4 mt-10 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary"
+            className="flex items-center w-full gap-4 mt-10 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary"
             onClick={() => navigate("/resources/FAQs")}
           >
             <FaArrowCircleRight size={35} />

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import bgImage from "/src/assets/images/sustainabilityHome.png";
+import bgImage2 from "/src/assets/images/productImg.png";
 
 function ProductSection() {
   const navigate = useNavigate();
@@ -8,8 +10,8 @@ function ProductSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    "/src/assets/images/imageBg5.jpg",
-    "/src/assets/images/backGroundImage2.jpg",
+    bgImage,
+    bgImage2
   ];
 
   // Handle content change (on button click)
@@ -20,7 +22,7 @@ function ProductSection() {
   // Sustainability Content
   const sustainabilityContent = (
     <div className="px-5 content-slide sm:px-10">
-      <h2 className="mb-4 text-2xl font-bold leading-tight text-gray-800 sm:text-3xl text-secondary">
+      <h2 className="mb-4 text-3xl font-bold leading-tight sm:text-[2rem] text-secondary">
         Our Commitment to Sustainability
       </h2>
       <p className="mb-4 text-sm tracking-tight sm:text-base">
@@ -35,11 +37,11 @@ function ProductSection() {
   // Products Content
   const productsContent = (
     <div className="px-5 content-slide sm:px-10">
-      <h2 className="mb-4 text-2xl font-bold leading-tight sm:text-3xl text-secondary">
+      <h2 className="mb-4 text-2xl font-bold leading-tight sm:text-[2rem] text-secondary">
         Our Products
       </h2>
       <p className="mb-4 text-sm tracking-tight sm:text-base">
-        At Tami City, we offer a diverse range of high-quality, sustainably sourced agricultural products designed to meet the growing demands of global markets. Our products include Cassava Flour, Cocoa, Cashew Nuts, and Plantain Flour—each crafted with care and expertise to provide exceptional quality and nutritional benefits.
+        At Tami City, we offer a diverse range of high-quality, sustainably sourced agricultural products designed to meet the growing demands of global markets. Our products include Cassava Flour, Cocoa, Cashew Nuts, and Plantain Flour each crafted with care and expertise to provide exceptional quality and nutritional benefits.
       </p>
       <p className="text-sm tracking-tight sm:text-base">
         We are committed to sustainable sourcing and ensuring that our products meet the highest standards of excellence. By supporting local farmers and implementing ethical practices, we strive to make a positive impact on both the environment and the communities we work with.
@@ -52,7 +54,7 @@ function ProductSection() {
       setActiveContent((prevContent) =>
         prevContent === "sustainability" ? "products" : "sustainability"
       );
-    }, 5000); // Switch every 5 seconds
+    }, 8000); // Switch every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -73,7 +75,7 @@ function ProductSection() {
           {/* Image Slideshow with Sliding Effect */}
           <div
             className={`relative w-full h-[50vh] lg:h-[60vh] overflow-hidden transition-transform duration-1000 ease-in-out ${
-              activeContent === "sustainability" ? "transform-x-[-100%]" : "transform-x-0"
+              activeContent === "sustainability" ? "transform-x-[100%]" : "transform-x-0"
             }`}
           >
             <img
@@ -107,7 +109,7 @@ function ProductSection() {
         {/* Content Area with Sliding Effect */}
         <div
           className={`flex-1 transition-transform duration-1000 ease-in-out ${
-            activeContent === "sustainability" ? "transform-x-[-100%]" : "transform-x-0"
+            activeContent === "sustainability" ? "transform-x-[100%]" : "transform-x-0"
           }`}
         >
           {activeContent === "sustainability" ? sustainabilityContent : productsContent}
@@ -115,7 +117,7 @@ function ProductSection() {
           {/* Read More Button */}
           {activeContent === "sustainability" && (
             <div
-              className="flex items-center w-full gap-6 mt-5 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary max-md:px-10"
+              className="flex items-center w-full gap-3 px-10 mt-5 text-sm font-semibold rounded-md cursor-pointer lg:gap-5 text-secondary"
               onClick={() => navigate("/about/sustainability")}
             >
               <FaArrowCircleRight size={35} />
@@ -125,11 +127,11 @@ function ProductSection() {
 
           {activeContent === "products" && (
             <div
-              className="flex items-center w-full gap-4 mt-10 text-sm font-semibold rounded-md cursor-pointer lg:gap-10 text-secondary max-md:px-10"
+              className="flex items-center w-full gap-3 px-10 mt-10 text-sm font-semibold rounded-md cursor-pointer lg:gap-5 text-secondary"
               onClick={() => navigate("/products")}
             >
               <FaArrowCircleRight size={30} />
-              <span className="hover:underline">Read More on Products</span>
+              <span className="hover:underline ">Read More on Products</span>
             </div>
           )}
         </div>
