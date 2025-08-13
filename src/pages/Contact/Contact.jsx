@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import contactUs from "/src/assets/images/contactUs.png";
-import Footer from "../../components/General/Footer";
+import axios from "axios";
+import Footer from '../../components/General/Footer';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    interest: "",
+    purpose: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/contact-submit",
+        formData,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      console.log("Submitted successfully:", response.data);
+      alert("Form submitted!");
+
+      setFormData ({
+         name: "",
+        email: "",
+        phone: "",
+        interest: "",
+        purpose: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Submission error:", error.response || error.message);
+      alert("Submission failed.");
+    }
+  };
+
   return (
     <>
       <section
@@ -10,23 +56,20 @@ const Contact = () => {
         id="contact"
       >
         <section className="">
-                <div
-                  className="relative w-full md:h-[25rem] h-[20rem] px-[2rem] "
-                  style={{
-                    backgroundImage: `url(${contactUs})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black opacity-10"></div>
-                  <div className="relative text-[1rem] text-white">
-                    
-                    
-                  </div>
-                </div>
-              </section>
-        <div className="container max-w-screen-xl mx-auto px-[15px] lg:px-[50px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div
+            className="relative w-full md:h-[25rem] h-[20rem] px-[2rem]"
+            style={{
+              backgroundImage: `url(${contactUs})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black opacity-10"></div>
+            <div className="relative text-[1rem] text-white"></div>
+          </div>
+        </section>
+        <div className="container max-w-screen-xl mx-auto px-[15px] lg:px-[20px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr]">
             <div className="w-full px-4 ">
               <div className="mb-12 max-w-[570px] lg:mb-0">
                 <span className="block mt-5 mb-4 text-base font-bold text-primary">
@@ -36,9 +79,9 @@ const Contact = () => {
                   GET IN TOUCH WITH US
                 </h2>
                 <p className="text-base leading-relaxed mb-9 text-body-color">
-                  Ask Questions about our product, and exportation process 
+                  Ask Questions about our product, and exportation process
                 </p>
-               
+
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary bg-opacity-5 text-primary sm:h-[70px] sm:max-w-[70px]">
                     <svg
@@ -87,81 +130,119 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full px-4 ">
-              <div className="relative p-8 bg-white rounded-lg shadow-lg sm:p-12">
-                <form>
-                  <ContactInputBox
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                  />
-                  <ContactInputBox
-                    type="text"
-                    name="email"
-                    placeholder="Your Email"
-                  />
-                  <ContactInputBox
-                    type="text"
-                    name="phone"
-                    placeholder="Your Phone"
-                  />
-                  <ContactTextArea
-                    row="6"
-                    placeholder="Your Message"
-                    name="details"
-                    defaultValue=""
-                  />
-                  <div>
-                    <button
-                      type="submit"
-                      className="w-full p-3 text-white transition border rounded-md border-secondary bg-secondary hover:bg-opacity-90"
-                    >
-                      Send Message
-                    </button>
+            <div className="px-6 pt-12 pb-5 bg- md:px-8">
+              <div className="max-w-4xl p-10 mx-auto bg-white shadow-lg rounded-2xl">
+                <h2 className="mb-6 text-3xl font-bold text-green-800">
+                  Contact Us
+                </h2>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label className="block text-sm font-medium">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                        required
+                      />
+                    </div>
                   </div>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label className="block text-sm font-medium">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium">
+                        Interested In
+                      </label>
+                      <select
+                        name="interest"
+                        value={formData.interest}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      >
+                        <option value="">-- Select --</option>
+                        <option value="cassava">Cassava</option>
+                        <option value="cocoa">Cocoa</option>
+                        <option value="cocoa">Coffee</option>
+                        <option value="yam">Cashew</option>
+                        <option value="export">Export Services</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium">
+                      Purpose of Contact
+                    </label>
+                    <select
+                      name="purpose"
+                      value={formData.purpose}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    >
+                      <option value="">-- Choose One --</option>
+                      <option value="quote">Request a Quote</option>
+                      <option value="inquiry">Product Inquiry</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="others">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium">Message</label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows="5"
+                      className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="px-6 py-3 text-white transition duration-300 bg-green-700 rounded-lg shadow-lg hover:bg-green-800"
+                  >
+                    Send Message
+                  </button>
                 </form>
-                <div>
-                  
-                </div>
               </div>
             </div>
           </div>
         </div>
         <Footer/>
       </section>
+     
     </>
   );
 };
 
 export default Contact;
-
-const ContactTextArea = ({ row, placeholder, name, defaultValue }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <textarea
-          rows={row}
-          placeholder={placeholder}
-          name={name}
-          className="border-[f0f0f0] w-full resize-none rounded border py-3 px-[14px] text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none"
-          defaultValue={defaultValue}
-        />
-      </div>
-    </>
-  );
-};
-
-const ContactInputBox = ({ type, placeholder, name }) => {
-  return (
-    <>
-      <div className="mb-6">
-        <input
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          className="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none"
-        />
-      </div>
-    </>
-  );
-};

@@ -1,5 +1,6 @@
 // src/components/Footer.js
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import Icon from "/src/assets/icons/tamoi ws.png";
@@ -7,12 +8,38 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+
   const handleScrollUp = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/newsletter-subscribe",
+        {
+          email: formData.email,
+        }
+      );
+
+      console.log("Submitted successfully:", response.data);
+      alert("Subscribed successfully!");
+
+      setFormData({ email: "" });
+    } catch (error) {
+      console.error("Submission error:", error.response || error.message);
+      alert("Subscription failed. Please try again.");
+    }
+  };
+
   return (
     <footer className="w-full py-8 text-white ">
       <div className="container text-[0.95rem] ">
@@ -39,7 +66,7 @@ const Footer = () => {
               </p>
 
               <a
-                href= "https://mail.google.com/mail/?view=cm&fs=1&to=tamicity@gmail.com" 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=tamicity@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer "
                 className="hover:underline"
@@ -130,10 +157,17 @@ const Footer = () => {
               <div className="grid gap-6 text-start">
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ email: e.target.value })}
                   placeholder="name@company.com"
                   className="p-2 font-semibold border-2 border-gray-300 rounded-md text-secondary"
                 />
-                <button className="px-5 py-1  rounded-md bg-primary text-secondary font-semibold w-[8rem]">
+
+                <button
+                  className="px-5 py-1  rounded-md bg-primary text-secondary font-semibold w-[8rem]"
+                  onClick={handleSubmit}
+                >
                   Subscribe
                 </button>
               </div>
@@ -192,10 +226,16 @@ const Footer = () => {
           &copy; 2024 TamiCity. All rights reserved.
         </p>
 
-        <div className="flex gap-5 md:px-5 ">
-          <p>Privacy</p>
-          <span>Disclaimer</span>
-          <p>Terms of Service</p>
+        <div className="flex gap-5 md:px-5">
+          <Link to="/privacy-policy" className="text-gray-600 hover:underline">
+            Privacy
+          </Link>
+          <Link to="/disclaimer" className="text-gray-600 hover:underline">
+            Disclaimer
+          </Link>
+          <Link to="/terms" className="text-gray-600 hover:underline">
+            Terms of Service
+          </Link>
         </div>
       </div>
     </footer>

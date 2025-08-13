@@ -40,7 +40,7 @@ function AboutTamicity() {
                   </nav>
           
           <p className="mb-6 text-lg leading-relaxed text-gray-700">
-            TamiCity is an agro-exportation company dedicated to transforming the agricultural landscape by exporting cassava, coco, cashew  and coffee products. Our mission goes beyond simply providing high-quality products; we are committed to supporting local farmers, enhancing food security, and promoting innovative farming practices across the globe.
+            TamiCity is an agro-exportation company dedicated to transforming the agricultural landscape by exporting cassava, cocoa, cashew  and coffee products. Our mission goes beyond simply providing high-quality products; we are committed to support local farmers, enhancing food security, and promoting innovative farming practices across the globe.
           </p>
           <p className="mb-6 text-lg leading-relaxed text-gray-700">
             At the heart of our operations is a focus on empowering farmers. We provide them with the training, tools, and resources they need to adopt eco-friendly, efficient, and profitable agricultural techniques. This includes soil health management, water conservation, and responsible pest control. By integrating these practices, we ensure that agriculture in the region remains productive and environmentally responsible. This approach not only contributes to the sustainability of the environment but also enhances the livelihoods of the farmers, who are critical to our supply chain.

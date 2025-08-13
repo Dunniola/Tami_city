@@ -1,0 +1,1 @@
+import{j as t}from"./index-KfTzzbev.js";import"./vendor-BK8x6ASX.js";function o(){return t.jsx("div",{children:"ProductSustainability"})}export{o as default};

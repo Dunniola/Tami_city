@@ -9,6 +9,9 @@ import CropInnovation from './pages/AreasofFocus/CropInnovation';
 import SustainableDev from './pages/AreasofFocus/SustainableDev';
 import AreasOfFocuses from "./pages/AreasofFocus/AreasOfFocuses";
 import Coffee from './pages/Products/Coffee';
+import PrivacyPolicy from './pages/footer/Privacypolicy';
+import TermsOfService from './pages/footer/TermsOfService';
+import Disclaimer from './pages/footer/Disclaimer';
 
 // Lazy load the components
 const Layout = lazy(() => import("./components/General/Layout"));
@@ -105,6 +108,9 @@ function App() {
         <Route path="/resources" element={<Suspense fallback={<div>Loading...</div>}><Resources /></Suspense>} />
         <Route path="/resources/blog" element={<Suspense fallback={<div>Loading...</div>}><Blogs /></Suspense>} />
         <Route path="/resources/FAQs" element={<Suspense fallback={<div>Loading...</div>}><FAQs /></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<div>Loading...</div>}><PrivacyPolicy/></Suspense>} />
+        <Route path="/disclaimer" element={<Suspense fallback={<div>Loading...</div>}><Disclaimer/></Suspense>} />
+        <Route path="/terms" element={<Suspense fallback={<div>Loading...</div>}><TermsOfService/></Suspense>} />
       </Route>
     ),
     { basename: '/Tami_city/' } // This is the correct place for basename
