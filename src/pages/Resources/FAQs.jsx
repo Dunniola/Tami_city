@@ -56,7 +56,7 @@ function FAQs() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
 
         {/* Header content */}
-        <div className="relative z-10 text-white text-center px-4">
+        <div className="relative z-10 px-4 text-center text-white">
           <h1 className="text-4xl font-bold">Frequently Asked Questions</h1>
           <p className="mt-2 text-lg font-medium">Find answers to common questions about our services and products</p>
         </div>
@@ -67,9 +67,9 @@ function FAQs() {
         <div className="max-w-screen-lg px-4 mx-auto">
           <div className="faq-list">
             {faqs.map((faq, index) => (
-              <div key={index} className="mb-4 bg-white p-4 rounded-md shadow-sm">
+              <div key={index} className="p-4 mb-4 bg-white rounded-md shadow-sm">
                 <div
-                  className="cursor-pointer flex justify-between items-center text-xl font-semibold"
+                  className="flex items-center justify-between text-xl font-semibold cursor-pointer"
                   onClick={() => toggleAnswer(index)}
                 >
                   <span>{faq.question}</span>

@@ -53,7 +53,7 @@ function Coffee() {
       {/* Hero Section */}
       <section>
         <div
-          className="relative w-full h-[35rem] md:px-20 max-md:px-5"
+          className="relative w-full h-[30rem] md:px-20 max-md:px-5"
           style={{
             backgroundImage: `url(${coffeeBg})`,
             backgroundSize: "cover",
@@ -65,7 +65,7 @@ function Coffee() {
             <span className="relative top-[12rem] text-[1.5rem] font-semibold">
               Coffee
             </span>
-            <h1 className="relative top-[13rem] text-[3rem] font-bold max-md:text-[2.5rem]">
+            <h1 className="relative top-[13rem] text-[2.5rem] font-bold max-md:text-[2.3rem]">
               Redefining Coffee Excellence, the Sustainable Way.
             </h1>
           </div>

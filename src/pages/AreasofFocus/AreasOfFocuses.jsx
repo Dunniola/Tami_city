@@ -13,18 +13,18 @@ function AreaFocus() {
 
   const SectionCard = ({ icon, title, description, onClick, iconColor }) => (
     <div
-      className="flex flex-col sm:flex-row items-start gap-4 p-6 bg-white shadow-lg rounded-lg cursor-pointer transition-transform hover:scale-105"
+      className="flex flex-col items-start gap-4 p-6 transition-transform bg-white rounded-lg shadow-lg cursor-pointer sm:flex-row hover:scale-105"
       onClick={onClick}
     >
       <div className={`text-3xl sm:text-4xl p-4 rounded-full ${iconColor}`}>
         {icon}
       </div>
       <div>
-        <h3 className="text-lg sm:text-xl font-semibold text-primary">{title}</h3>
-        <p className="mt-2 text-sm sm:text-base text-gray-700">{description}</p>
+        <h3 className="text-lg font-semibold sm:text-xl text-primary">{title}</h3>
+        <p className="mt-2 text-sm text-gray-700 sm:text-base">{description}</p>
         <button
           onClick={onClick}
-          className="mt-3 inline-block text-sm font-medium text-primary border border-primary px-4 py-1 rounded-md hover:bg-primary hover:text-white transition"
+          className="inline-block px-4 py-1 mt-3 text-sm font-medium transition border rounded-md text-primary border-primary hover:bg-primary hover:text-white"
         >
           Read More
         </button>
@@ -36,21 +36,21 @@ function AreaFocus() {
     <div className="font-sans">
       {/* 🔹 Header Section */}
       <header
-        className=" bg-cover bg-center flex items-center justify-center text-white relative w-full h-[35rem] md:h-[40rem] px-6 md:px-12"
+        className=" bg-cover bg-center flex items-center  text-white relative w-full h-[30rem]  px-5 lg:px-20 md:px-10"
         style={{ backgroundImage: `url(${bgHeader})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center px-4 md:px-10">
-          <h1 className="text-3xl md:text-5xl font-bold leading-snug">Our Areas of Focus</h1>
-          <p className="mt-3 text-sm md:text-lg max-w-2xl mx-auto text-gray-200">
+        <div className="relative z-10 px-4 md:px-10">
+          <h1 className="text-3xl font-bold leading-snug md:text-5xl">Our Areas of Focus</h1>
+          <p className="mx-auto mt-3 text-[1rem] py-3 text-gray-200 md:text-[1.3rem]">
             Empowering agriculture through innovation, sustainability, and community impact.
           </p>
         </div>
       </header>
 
       {/* 🔹 Focus Areas */}
-      <section className="bg-gray-50 px-4 sm:px-8 md:px-20 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="px-4 py-12 bg-gray-50 sm:px-8 md:px-20">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <SectionCard
             icon={<FaLeaf />}
             title="Promoting Sustainable Development"

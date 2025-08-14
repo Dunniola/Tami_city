@@ -16,10 +16,10 @@ const SearchModal = ({ isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
+      <ModalOverlay  bg = "" backdropFilter="blur(0.5px)" className=""/>
       <ModalContent
         backgroundColor="black"
-        className="inset-0 flex flex-row max-w-lg font-sans flex-w-2/4"
+        className="relative top-[3rem]  font-sans "
       >
         <ModalHeader className="text-gold flex justify-between text-[1.2rem] text-primary">
           What do you want to discover?
@@ -36,7 +36,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 className="w-full px-4 py-2 bg-white rounded"
               />
               <div className="rounded bg-tetiary">
-                <BiSearchAlt className="m-2 text-primary" size={24} />
+                <BiSearchAlt className="m-2 cursor-pointer text-primary" size={24} />
               </div>
             </div>
           </form>

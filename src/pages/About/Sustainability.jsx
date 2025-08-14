@@ -6,9 +6,9 @@ import Footer from '../../components/General/Footer';
 function Sustainability() {
   return (
   <>
-      <div className='mt-20'>
+      <div className=''>
          <div
-                className="relative w-full h-[30rem] px-[2rem]"
+                className="relative w-full h-[30rem]  px-5 lg:px-20 md:px-10"
                 style={{
                   backgroundImage: `url(${sustainabilityBg})`,
                   backgroundSize: "cover",
@@ -24,7 +24,7 @@ function Sustainability() {
               {/* Breadcrumb Navigation */}
               
       
-      <section className="mb-12 px-[2rem] mt-10 ">
+      <section className="px-5 mt-10 mb-12 lg:px-20 md:px-10 ">
         <h2 className="mb-4 text-2xl font-semibold text-secondary">
           Sustainability
         </h2>

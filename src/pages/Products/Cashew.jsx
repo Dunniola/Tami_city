@@ -53,7 +53,7 @@ function Cashew() {
       {/* Hero Section */}
       <section>
         <div
-          className="relative w-full h-[35rem] px-[2rem]"
+          className="relative w-full h-[30rem]  px-5 lg:px-20 md:px-10"
           style={{
             backgroundImage: `url(${cashewBg})`,
             backgroundSize: "cover",
@@ -65,7 +65,7 @@ function Cashew() {
             <span className="relative top-[12rem] text-[1.5rem] font-semibold ">
               Cashew
             </span>
-            <h1 className="relative top-[13rem] max-md:text-[2.5rem] text-[3rem] font-bold">
+            <h1 className="relative top-[13rem] max-md:text-[2.3rem] text-[3rem] font-bold">
               Cultivating Quality, Naturally.
             </h1>
           </div>

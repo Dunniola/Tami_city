@@ -10,7 +10,7 @@ const ExportProcessFullPage = () => {
     <div className="font-sans text-gray-800 bg-white">
       {/* Hero Section */}
       <header
-        className="relative w-full h-[28rem] leading-[4rem] px-6 flex items-center justify-center text-white text-center"
+        className="relative w-full h-[30rem] leading-[4rem] px-6 flex items-center justify-center text-white text-center"
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",

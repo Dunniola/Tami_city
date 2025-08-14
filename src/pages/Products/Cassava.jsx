@@ -54,7 +54,7 @@ function Cassava() {
       {/* Hero Section */}
       <section>
         <div
-          className="relative w-full h-[35rem] px-[2rem]"
+          className="relative w-full h-[30rem] px-5 lg:px-20 md:px-10"
           style={{
             backgroundImage: `url(${cassavaBg})`,
             backgroundSize: "cover",

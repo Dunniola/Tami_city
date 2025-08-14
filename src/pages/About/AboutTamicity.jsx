@@ -1,16 +1,16 @@
 import React from 'react'
-import bgImage from "/src/assets/images/imageBg5.jpg";
+import bgImage from "/src/assets/images/aboutTamicity.jpg";
 import { Link } from 'react-router-dom';
 import Footer from '../../components/General/Footer';
 
 function AboutTamicity() {
   return (
     <>
-      <div className="container py-10 mx-auto mt-20">
+      <div className="container ">
         
         <section className="sm:text-left">
             <div
-                    className="relative w-full h-[20rem] px-[2rem]"
+                    className="relative w-full h-[30rem] px-5 lg:px-20 md:px-10"
                     style={{
                       backgroundImage: `url(${bgImage})`,
                       backgroundSize: "cover",
@@ -24,7 +24,7 @@ function AboutTamicity() {
                   </div>
             
                   {/* Breadcrumb Navigation */}
-                  <section className='px-10'>
+                  <section className='px-5 lg:px-20 md:px-10'>
                   <nav className="my-10 text-secondary">
                     <ol className="flex items-center space-x-2">
                       <li>

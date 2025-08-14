@@ -36,7 +36,7 @@ const HeroSection = () => {
 
   return (
     <div>
-      <div className="relative h-[22rem] md:h-[30rem] lg:h-[40rem] overflow-hidden z-0">
+      <div className="relative h-[35rem]   overflow-hidden w-full z-0">
         {/* Dynamic Background Image */}
         <div className="absolute w-full h-full">
           <AnimatePresence custom={direction}>
@@ -48,7 +48,7 @@ const HeroSection = () => {
               animate="center"
               exit="exit"
               transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="absolute w-full h-full bg-center bg-no-repeat bg-cover"
+              className="absolute w-full  h-[35rem] bg-center bg-no-repeat bg-cover"
               style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
             ></motion.div>
           </AnimatePresence>
@@ -65,7 +65,7 @@ const HeroSection = () => {
             </p>
             <div
               className="flex items-center justify-center w-full max-w-[8rem] mx-auto text-center italic text-secondary font-semibold rounded-md bg-primary cursor-pointer py-2 sm:py-3"
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/about-tamicity")}
             >
               <span className="px-3 text-sm sm:text-base">Learn More</span>
             </div>
@@ -75,11 +75,11 @@ const HeroSection = () => {
 
       {/* Mobile Responsive Section */}
       <div className="px-4 py-4 my-8 text-center bg-gray-50 sm:px-10 md:px-16 place-items-center">
-        <h1 className="text-xl sm:text-2xl md:text-[2rem] leading-[2rem] my-6">
+        <h1 className="text-xl sm:text-[2rem] md:text-[2rem] leading-[2rem] my-6">
           Africa’s Fast Growing  Agro-Exporter,{" "}
           <strong>Connecting Global Markets</strong>
         </h1>
-        <p className="text-sm leading-7 sm:text-base md:text-lg sm:leading-7">
+        <p className="text-sm leading-7 sm:text-[1.2rem] md:text-lg sm:leading-7">
           TamiCity is an agro-exportation company dedicated to transforming the
           agricultural landscape <br />
           by exporting high-quality cocoa, coffee, cassava, and cashew nut
@@ -95,7 +95,7 @@ const HeroSection = () => {
           </strong>
         </p>
 
-        <Link to="/about">
+        <Link to="/about-tamicity">
           <button className="flex items-center gap-2 px-6 py-2 mt-5 font-semibold text-center rounded-md bg-primary text-secondary">
             Know more about Tamicity
             <FaArrowRight className="w-5 h-5" />

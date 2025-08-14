@@ -11,7 +11,7 @@ const ExportDocumentation = () => {
     <div className="font-sans text-gray-800 bg-gray-50">
       {/* Hero Header */}
       <header
-        className="relative w-full h-[22rem] md:h-[28rem] lg:h-[30rem] flex items-center justify-center px-4 md:px-10 lg:px-20 text-center"
+        className="relative w-full h-[30rem]  lg:h-[30rem] flex items-center justify-center px-4 md:px-10 lg:px-20 text-center"
         style={{
           backgroundImage: bgImage ? `url(${bgImage})` : "none",
           backgroundSize: "cover",
@@ -24,10 +24,10 @@ const ExportDocumentation = () => {
 
         {/* Content */}
         <div className="relative z-10 text-white">
-          <span className="block text-lg sm:text-xl md:text-2xl font-semibold">
+          <span className="block text-lg font-semibold sm:text-xl md:text-2xl">
             Export Documentation
           </span>
-          <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h1 className="mt-2 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
             Ensuring Compliance and Smooth Trade Processes
           </h1>
         </div>
@@ -36,7 +36,7 @@ const ExportDocumentation = () => {
       {/* Main Content */}
       <section className="max-w-screen-xl mx-auto px-4 md:px-10 lg:px-20 py-10 md:py-16 lg:py-20 text-[0.95rem] sm:text-base leading-7 text-gray-700">
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700">
+        <h2 className="text-2xl font-bold text-green-700 sm:text-3xl md:text-4xl">
           Professional Export Documentation Services
         </h2>
 
@@ -60,16 +60,16 @@ const ExportDocumentation = () => {
         </p>
 
         {/* Call to Action */}
-        <div className="mt-16 py-10 px-5 md:px-10 bg-green-50 rounded-md text-center">
-          <h2 className="text-xl sm:text-2xl font-semibold text-green-700">
+        <div className="px-5 py-10 mt-16 text-center rounded-md md:px-10 bg-green-50">
+          <h2 className="text-xl font-semibold text-green-700 sm:text-2xl">
             Let Us Handle Your Export Documentation!
           </h2>
-          <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600">
+          <p className="mt-4 mb-8 text-sm text-gray-600 sm:text-base">
             Experience seamless international trade with Tamicity. Reach out to us today to learn how
             we can assist in simplifying your export process.
           </p>
           <div
-            className="inline-flex items-center gap-2 text-green-700 font-semibold cursor-pointer hover:underline"
+            className="inline-flex items-center gap-2 font-semibold text-green-700 cursor-pointer hover:underline"
             onClick={() => navigate("/contact")}
           >
             <span>Contact Us</span>

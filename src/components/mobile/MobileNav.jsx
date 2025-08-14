@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Icon from "/src/assets/icons/tamoi ws.png";  // Make sure to replace with correct path
+import Icon from "/src/assets/icons/tamoi ws.png"; // Make sure to replace with correct path
 import { useDisclosure } from "@chakra-ui/react";
-import SearchModal from "../modals/SearchModal";  // Ensure the correct path to your SearchModal component
+import SearchModal from "../modals/SearchModal"; // Ensure the correct path to your SearchModal component
 import { BiSearchAlt } from "react-icons/bi";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
@@ -64,7 +64,9 @@ function MobileNavbar({ black }) {
       <SearchModal isOpen={isOpen} onClose={onClose} />
 
       <header
-        className={`md:hidden ${isOpen ? "bg-opacity-40 z-20" : "bg-opacity-100"} shadow-xl overflow-hidden`}
+        className={`md:hidden ${
+          isOpen ? "bg-black bg-opacity-50 z-20" : "bg-black bg-opacity-0"
+        } shadow-xl overflow-hidden`}
       >
         <nav
           className={`flex gap-[15rem] px-3 fixed bg-white shadow-lg opacity-100 items-center inset-0 h-[4rem] z-10 ${
@@ -128,7 +130,12 @@ function MobileNavbar({ black }) {
             {/* ABOUT US */}
             <div className="flex my-2">
               <div>
-                <Link to={"/about"} onClick={(e) => {setNavMenu(false); }}>
+                <Link
+                  to={"/about"}
+                  onClick={(e) => {
+                    setNavMenu(false);
+                  }}
+                >
                   <li
                     className={`border-y-4 hover:border-dashed border-transparent w-[120px] hover:border-b-primary hover:font-bold ${
                       pathname === "/about" ||
@@ -145,18 +152,27 @@ function MobileNavbar({ black }) {
 
                 {activeDropdowns.about && (
                   <div className="px-8 py-1 font-normal transition-all duration-300 ease-in-out">
-                    <Link to={"/about/our-story"}  onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/about/our-story"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[120px]">
                         Our Story
                       </li>
                     </Link>
-                    
-                    <Link to={"/about/sustainability" }  onClick={() => setNavMenu(false)}>
+
+                    <Link
+                      to={"/about/sustainability"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Sustainability
                       </li>
                     </Link>
-                    <Link to={"/about/areas-of-focus"}  onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/about/areas-of-focus"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Areas of Focus
                       </li>
@@ -176,7 +192,12 @@ function MobileNavbar({ black }) {
             {/* PRODUCTS */}
             <div className="flex items-start my-2">
               <div>
-                <Link to={"/products"} onClick={(e) => {  setNavMenu(false); }}>
+                <Link
+                  to={"/products"}
+                  onClick={(e) => {
+                    setNavMenu(false);
+                  }}
+                >
                   <li
                     className={`border-y-4 hover:border-dashed border-transparent w-[120px] hover:border-b-primary hover:font-bold ${
                       pathname === "/products" ||
@@ -196,29 +217,44 @@ function MobileNavbar({ black }) {
 
                 {activeDropdowns.products && (
                   <div className="items-center px-8 py-1 font-normal transition-all duration-300 ease-in-out">
-                    <Link to={"/products/cocoa"}  onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/products/cocoa"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Cocoa
                       </li>
                     </Link>
-                    <Link to={"/products/cassava"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/products/cassava"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Cassava
                       </li>
                     </Link>
-                    <Link to={"/products/coffee"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/products/coffee"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Coffee
                       </li>
                     </Link>
 
-                    <Link to={"/products/cashew"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/products/cashew"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Cashew
                       </li>
                     </Link>
 
-                    <Link to={"/products/risk-management"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/products/risk-management"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-3 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Risk Management
                       </li>
@@ -238,7 +274,12 @@ function MobileNavbar({ black }) {
             {/* Export Process */}
             <div className="flex my-1">
               <div>
-                <Link to={"/export-process"} onClick={(e) => { setNavMenu(false); }} >
+                <Link
+                  to={"/export-process"}
+                  onClick={(e) => {
+                    setNavMenu(false);
+                  }}
+                >
                   <li
                     className={`border-y-4 hover:border-dashed border-transparent w-[180px] hover:border-b-primary hover:font-bold ${
                       pathname === "/export-process" ||
@@ -255,17 +296,26 @@ function MobileNavbar({ black }) {
 
                 {activeDropdowns.export && (
                   <div className="items-center px-8 pr-[4rem] font-normal text-start transition-all duration-300 ease-in-out">
-                    <Link to={"/export-process/how-it-works"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/export-process/how-it-works"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[150px]">
                         How It Works
                       </li>
                     </Link>
-                    <Link to={"/export-process/shipping"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/export-process/shipping"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Shipping & Delivery
                       </li>
                     </Link>
-                    <Link to={"/export-process/documentation"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/export-process/documentation"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                         Export Documentation
                       </li>
@@ -297,7 +347,12 @@ function MobileNavbar({ black }) {
             {/* RESOURCES */}
             <div className="flex my-1">
               <div>
-                <Link to={"/resources"} onClick={(e) => { setNavMenu(false); }}>
+                <Link
+                  to={"/resources"}
+                  onClick={(e) => {
+                    setNavMenu(false);
+                  }}
+                >
                   <li
                     className={`border-y-4 hover:border-dashed border-transparent w-[150px] hover:border-b-primary hover:font-bold ${
                       pathname === "/resources" ||
@@ -318,7 +373,10 @@ function MobileNavbar({ black }) {
                         Blogs and Articles
                       </li>
                     </Link> */}
-                    <Link to={"/resources/FAQs"} onClick={() => setNavMenu(false)}>
+                    <Link
+                      to={"/resources/FAQs"}
+                      onClick={() => setNavMenu(false)}
+                    >
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[90px]">
                         FAQs
                       </li>
@@ -330,7 +388,11 @@ function MobileNavbar({ black }) {
                 className="absolute right-5"
                 onClick={() => handleDropdownToggle("resources")}
               >
-                {activeDropdowns.resources ? <FaChevronDown /> : <FaChevronUp />}
+                {activeDropdowns.resources ? (
+                  <FaChevronDown />
+                ) : (
+                  <FaChevronUp />
+                )}
               </div>
             </div>
             <hr className="mt-5" />

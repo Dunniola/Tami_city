@@ -6,14 +6,14 @@ import Footer from "../../components/General/Footer";
 function SuistanableDev() {
   return (
     <>
-      <div className="mt-20 font-sans">
+      <div className="font-sans ">
         {/* Header Section with Background */}
         <section
-          className="relative w-full h-[20rem] md:h-[28rem] bg-cover bg-center"
+          className="relative w-full h-[30rem]  px-5 lg:px-20 md:px-10 bg-cover bg-center"
           style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
-          <div className="relative z-10 flex items-center justify-center h-full px-4 text-white text-center">
+          <div className="relative flex items-center h-full px-4 text-white ">
             <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-bold">
               Promoting Sustainable Development
             </h1>
@@ -21,17 +21,17 @@ function SuistanableDev() {
         </section>
 
         {/* Breadcrumb Navigation */}
-        <section className="px-5 md:px-10 lg:px-20 mt-8 text-secondary text-sm md:text-base">
+        <section className="px-5 mt-8 text-sm md:px-10 lg:px-20 text-secondary md:text-base">
           <nav>
-            <ol className="flex flex-wrap items-center space-x-2 md:space-x-4">
+            <ol className="flex flex-wrap space-x-2 md:space-x-4">
               <li>
-                <Link to="/" className="text-primary font-semibold hover:underline">
+                <Link to="/" className="font-semibold text-primary hover:underline">
                   Home
                 </Link>
               </li>
               <li className="text-gray-500">&gt;</li>
               <li>
-                <Link to="/" className="text-primary font-semibold hover:underline">
+                <Link to="/" className="font-semibold text-primary hover:underline">
                   Areas of Focus
                 </Link>
               </li>

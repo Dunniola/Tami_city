@@ -144,7 +144,7 @@ const ShippingAndDelivery = () => {
           className="flex items-center mb-8 max-md:flex-col-reverse"
           ref={packagingRef}
         >
-          <div className="flex-1 md:w-1/3 md:pl-8 px-2">
+          <div className="flex-1 px-2 md:w-1/3 md:pl-8">
             <h2 className="text-2xl font-semibold text-green-700">
               Packaging
             </h2>
@@ -165,7 +165,7 @@ const ShippingAndDelivery = () => {
 
         {/* Step 3: Shipping */}
         <div
-          className="flex items-center mb-8 max-md:flex-col px-2"
+          className="flex items-center px-2 mb-8 max-md:flex-col"
           ref={shippingRef}
         >
           <img
@@ -184,7 +184,7 @@ const ShippingAndDelivery = () => {
         </div>
 
         {/* Step 4: Delivery Updates */}
-        <section className="mt-12 md:flex md:gap-12 px-2" ref={deliveryRef}>
+        <section className="px-2 mt-12 md:flex md:gap-12" ref={deliveryRef}>
           <div className="flex items-center mb-8 max-md:flex-col-reverse">
             <div className="flex-1 md:w-1/2 md:pl-8">
               <h2 className="text-2xl font-semibold text-green-700">

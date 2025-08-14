@@ -26,7 +26,7 @@ function Resources() {
       {/* Content Section */}
       <div className="flex flex-col justify-center px-5 py-10 bg-white lg:px-20 md:px-10">
         <section>
-          <div className=" space-y-10">
+          <div className="space-y-10 ">
             {/* Resources Overview */}
             <section>
               <p className="mt-4 text-lg gray-700 max-md:text-[0.9rem]">
@@ -40,7 +40,7 @@ function Resources() {
             </section>
 
             {/* FAQ Intro and Link */}
-            <section className="flex flex-col   py-10 mt-20 text-center bg-green-50">
+            <section className="flex flex-col py-10 mt-20 text-center bg-green-50">
               <h2 className="font-bold text-center text-1xl text-secondary semibold">
                 Need Help? Explore Our FAQ
               </h2>
@@ -48,7 +48,7 @@ function Resources() {
                 Get quick answers to common questions about our products,
                 processes, and how to get started with exports.
               </p>
-              <Link to={"/resources/FAQs"} className="hover:text-secondary font-semibold">
+              <Link to={"/resources/FAQs"} className="font-semibold hover:text-secondary">
               Go to Frequently Asked Questions →
               </Link>
                

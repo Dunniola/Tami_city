@@ -24,7 +24,7 @@ function ExportProcess() {
     <div className="font-sans text-gray-800 bg-gray-50">
       {/* Header Section */}
       <header
-        className="relative w-full h-[30rem] leading-[4rem] px-[2rem] text-center"
+        className="relative w-full h-[30rem] leading-[4rem]  px-5 lg:px-20 md:px-10 "
         style={{
           backgroundImage: `url(${shippingBg})`,
           backgroundSize: "cover",
@@ -32,8 +32,8 @@ function ExportProcess() {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative top-[12rem] max-md:top-[10rem] text-white font-bold text-center text-[1.2rem]">
-          <h1 className="text-[3rem] max-md:text-[2.5rem] ">
+        <div className="relative top-[12rem] max-md:top-[10rem] text-white font-bold  text-[1.2rem]">
+          <h1 className="text-[2.5rem] max-md:text-[2.5rem] ">
             Streamlined Export Solutions for Agro-Products
           </h1>
         </div>

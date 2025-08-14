@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import contactUs from "/src/assets/images/contactUs.png";
+import contactUs from "/src/assets/images/contactUs.jpg";
 import axios from "axios";
 import Footer from '../../components/General/Footer';
 
@@ -57,7 +57,7 @@ const Contact = () => {
       >
         <section className="">
           <div
-            className="relative w-full md:h-[25rem] h-[20rem] px-[2rem]"
+            className="relative w-full h-[30rem] max-md:h-[25rem]  px-[2rem]"
             style={{
               backgroundImage: `url(${contactUs})`,
               backgroundSize: "cover",

@@ -39,7 +39,7 @@ function Navbar({ black }) {
 
       <div className="overflow-x-hidden overflow-y-hidden font-sans">
         <header
-          className={`max-md:hidden ${isOpen ? "bg-opacity-40" : "opacity-100"} shadow-lg overflow-hidden`}
+          className={`max-md:hidden ${isOpen ? "bg-opacity-20" : "opacity-100"} shadow-lg overflow-hidden`}
         >
           <nav className="fixed top-0 left-0 z-10 flex items-center justify-between w-full px-2 bg-white shadow-lg opacity-100">
             <Link to={"/"}>

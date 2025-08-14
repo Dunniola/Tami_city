@@ -46,7 +46,7 @@ const About = () => {
 
       <section className="">
         <div
-          className="relative w-full h-[35rem] md:h-[40rem] px-6 md:px-12"
+          className="relative w-full h-[35rem]  px-6 md:px-12"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",

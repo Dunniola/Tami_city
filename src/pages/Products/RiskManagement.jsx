@@ -46,14 +46,14 @@ function RiskManagement() {
       {/* Hero Section */}
       <section>
         <div
-          className="relative w-full h-[25rem] px-[2rem]"
+          className="relative w-full h-[30rem] px-[2rem]"
           style={{
             backgroundImage: `url(${riskManagementBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-30"></div>
+          <div className="absolute inset-0 bg-black opacity-20"></div>
           <div className="relative text-[1rem] text-gray-300">
             {/* <span className="relative top-[8rem] text-[1.5rem] font-semibold">
               Risk Management

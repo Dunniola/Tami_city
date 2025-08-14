@@ -69,7 +69,7 @@ function Products() {
   </p>
 
   <div className="relative">
-    <div className="flex px-1 space-x-4 overflow-x-auto md:grid md:grid-cols-3 md:space-x-0 scroll-smooth snap-x snap-mandatory scrollbar-hide">
+    <div className="flex gap-3 overflow-x-auto scrollbar-hide md:grid md:grid-rows-2 md:grid-cols-3 ">
       {/* CARD COMPONENTS */}
       {[{
         title: "Cocoa",
@@ -109,13 +109,13 @@ function Products() {
       }].map((item, index) => (
         <div
           key={index}
-          className="flex-shrink-0 w-[100%] md:w-auto max-w-[400px]  bg-white rounded-md shadow "
+          className="flex-shrink-0  md:w-auto max-w-[400px]  bg-white rounded-md shadow "
         >
-          <img src={item.image} alt={item.title} className="w-full h-[200px] object-cover rounded" />
-          <h3 className="text-[1.5rem] font-semibold mt-4">{item.title}</h3>
-          <p className="mt-2 text-sm text-gray-600">{item.desc}</p>
+          <img src={item.image} alt={item.title} className="object-cover w-full h-48 rounded md:h-64" />
+          <h3 className="text-[1.5rem] font-semibold mt-4 px-4">{item.title}</h3>
+          <p className="px-4 mt-2 text-sm text-gray-600">{item.desc}</p>
           <div
-            className="flex items-center gap-3 mt-6 text-sm font-semibold cursor-pointer text-secondary"
+            className="flex items-center gap-3 px-4 py-2 mt-6 text-sm font-semibold cursor-pointer text-secondary"
             onClick={() => navigate(item.route)}
           >
             <FaArrowCircleRight size={30} />

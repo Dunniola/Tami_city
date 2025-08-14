@@ -6,12 +6,12 @@ import Footer from "../../components/General/Footer";
 function CropInnovation() {
   return (
     <>
-      <div className="mt-10 font-sans">
+      <div className="font-sans ">
         {/* Header Section with Background Image */}
-        <section className="relative w-full h-[20rem] md:h-[25rem] bg-cover bg-center bg-no-repeat"
+        <section className="relative w-full h-[30rem]  bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgImage})` }}>
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-          <div className="relative z-10 flex items-center justify-center h-full px-4 text-white text-center">
+          <div className="relative flex items-center h-full px-5 text-center text-white lg:px-20 md:px-10">
             <h1 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-bold">
               Crop Innovation
             </h1>
@@ -19,14 +19,14 @@ function CropInnovation() {
         </section>
 
         {/* Breadcrumb Navigation */}
-        <nav className="px-5 md:px-10 lg:px-20 mt-8 text-secondary text-sm md:text-base">
+        <nav className="px-5 mt-8 text-sm md:px-10 lg:px-20 text-secondary md:text-base">
           <ol className="flex flex-wrap items-center space-x-2 md:space-x-4">
             <li>
-              <Link to="/" className="text-primary font-semibold hover:underline">Home</Link>
+              <Link to="/" className="font-semibold text-primary hover:underline">Home</Link>
             </li>
             <li className="text-gray-500">&gt;</li>
             <li>
-              <Link to="/" className="text-primary font-semibold hover:underline">Areas of Focus</Link>
+              <Link to="/" className="font-semibold text-primary hover:underline">Areas of Focus</Link>
             </li>
             <li className="text-gray-500">&gt;</li>
             <li className="font-bold text-gray-700">Crop Innovation</li>
