@@ -368,6 +368,14 @@ function MobileNavbar({ black }) {
 
                 {activeDropdowns.resources && (
                   <div className="items-center px-8 pr-[4rem] font-normal text-start transition-all duration-300 ease-in-out">
+                    <Link
+                      to={"/resources/how-to-order"}
+                      onClick={() => setNavMenu(false)}
+                    >
+                      <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[160px]">
+                       Place an Order
+                      </li>
+                    </Link>
                     {/* <Link to={"/resources/blog"} onClick={() => setNavMenu(false)}>
                       <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed w-[200px]">
                         Blogs and Articles

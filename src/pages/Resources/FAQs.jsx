@@ -17,7 +17,7 @@ function FAQs() {
     },
     {
       question: "How do I place an order?",
-      answer: "You can place an order through our online platform by selecting the product and following the checkout process."
+      answer: "You can place an order through our contact page by selecting the product or  through our how to order page and follow the process."
     },
     {
       question: "What is your shipping policy?",

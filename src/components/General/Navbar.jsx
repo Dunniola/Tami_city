@@ -39,7 +39,9 @@ function Navbar({ black }) {
 
       <div className="overflow-x-hidden overflow-y-hidden font-sans">
         <header
-          className={`max-md:hidden ${isOpen ? "bg-opacity-20" : "opacity-100"} shadow-lg overflow-hidden`}
+          className={`max-md:hidden ${
+            isOpen ? "bg-opacity-20" : "opacity-100"
+          } shadow-lg overflow-hidden`}
         >
           <nav className="fixed top-0 left-0 z-10 flex items-center justify-between w-full px-2 bg-white shadow-lg opacity-100">
             <Link to={"/"}>
@@ -76,7 +78,10 @@ function Navbar({ black }) {
               </Link>
 
               {/* ABOUT US */}
-              <Link to={"/about"} onMouseEnter={() => setActiveDropdown("about")}>
+              <Link
+                to={"/about"}
+                onMouseEnter={() => setActiveDropdown("about")}
+              >
                 <li
                   className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group  hover:font-bold ${
                     pathname === "/about" ||
@@ -85,7 +90,8 @@ function Navbar({ black }) {
                     pathname === "/about/sustainability" ||
                     pathname === "/about/our-mission/sustainable-agriculture" ||
                     pathname === "/about/our-mission/enhancing-livelihoods" ||
-                    pathname === "/about/our-mission/innovating-for-crop-resilience"
+                    pathname ===
+                      "/about/our-mission/innovating-for-crop-resilience"
                       ? "border-b-primary"
                       : ""
                   }`}
@@ -102,7 +108,7 @@ function Navbar({ black }) {
                           Our Story
                         </li>
                       </Link>
-                      
+
                       <Link to={"/about/sustainability"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Sustainability
@@ -110,23 +116,29 @@ function Navbar({ black }) {
                       </Link>
                       <Link to={"/about/areas-of-focus"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                         Areas of Focus
+                          Areas of Focus
                         </li>
                       </Link>
-                      
                     </div>
                   </div>
                 </li>
               </Link>
 
               {/* PRODUCTS */}
-              <Link to={"/products"} onMouseEnter={() => setActiveDropdown("products")}>
+              <Link
+                to={"/products"}
+                onMouseEnter={() => setActiveDropdown("products")}
+              >
                 <li
                   className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/products" ||
                     pathname === "/products/cocoa" ||
                     pathname === "/products/coffee" ||
-                    pathname === "/products/cassava" || pathname === "/products/cashew"|| pathname === "/products/risk-management" || pathname === "/products/sustainability"                      ? "border-b-primary"
+                    pathname === "/products/cassava" ||
+                    pathname === "/products/cashew" ||
+                    pathname === "/products/risk-management" ||
+                    pathname === "/products/sustainability"
+                      ? "border-b-primary"
                       : ""
                   }`}
                 >
@@ -144,24 +156,24 @@ function Navbar({ black }) {
                       </Link>
                       <Link to={"/products/cassava"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                        Cassava
+                          Cassava
                         </li>
                       </Link>
                       <Link to={"/products/coffee"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                         Coffee
+                          Coffee
                         </li>
                       </Link>
 
                       <Link to={"/products/cashew"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                         Cashew
+                          Cashew
                         </li>
                       </Link>
 
                       <Link to={"/products/risk-management"}>
                         <li className="border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
-                        Risk Management
+                          Risk Management
                         </li>
                       </Link>
                     </div>
@@ -170,7 +182,10 @@ function Navbar({ black }) {
               </Link>
 
               {/* EXPORT PROCESS */}
-              <Link to={"/export-process"} onMouseEnter={() => setActiveDropdown("export")}>
+              <Link
+                to={"/export-process"}
+                onMouseEnter={() => setActiveDropdown("export")}
+              >
                 <li
                   className={`border-y-4 border-transparent w-[110px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/export-process" ||
@@ -209,7 +224,10 @@ function Navbar({ black }) {
               </Link>
 
               {/* CONTACT */}
-              <Link to={"/contact"} onMouseEnter={() => setActiveDropdown("contact")}>
+              <Link
+                to={"/contact"}
+                onMouseEnter={() => setActiveDropdown("contact")}
+              >
                 <li
                   className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/contact" ? "border-b-primary" : ""
@@ -231,11 +249,14 @@ function Navbar({ black }) {
               </Link>
 
               {/* RESOURCES */}
-              <Link to={"/resources"} onMouseEnter={() => setActiveDropdown("resources")}>
+              <Link
+                to={"/resources"}
+                onMouseEnter={() => setActiveDropdown("resources")}
+              >
                 <li
-                  className={`border-y-4 border-transparent w-[90px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
+                  className={`border-y-4 border-transparent w-[100px] hover:border-b-primary hover:border-dashed group hover:font-bold ${
                     pathname === "/resources" ||
-                    pathname === "/resources/blog" ||
+                    pathname === "/resources/how-to-order" ||
                     pathname === "/resources/FAQs"
                       ? "border-b-primary"
                       : ""
@@ -248,6 +269,11 @@ function Navbar({ black }) {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <div className="w-[8rem] font-normal bg-white  rounded-lg text-[1rem]">
+                      <Link to={"/resources/how-to-order"}>
+                        <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
+                          Place an Order
+                        </li>
+                        </Link>
                       {/* <Link to={"/resources/blog"}>
                         <li className="my-1 border-transparent border-y-4 hover:border-b-primary hover:border-dashed">
                           Blog and Articles
