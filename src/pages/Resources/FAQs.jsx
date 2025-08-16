@@ -21,7 +21,7 @@ function FAQs() {
     },
     {
       question: "What is your shipping policy?",
-      answer: "We offer international shipping and work with trusted logistics partners to ensure timely delivery."
+      answer: "We offer international shipping  with trusted logistics partners to ensure timely delivery."
     },
     {
       question: "Do you offer bulk discounts?",
@@ -29,11 +29,11 @@ function FAQs() {
     },
     {
       question: "What products do you sell?",
-      answer: "We sell a variety of agricultural products such as cassava, cocoa, cashew nuts, and plantain flour."
+      answer: "We sell a variety of agricultural products such as cassava, cocoa, cashew nuts, and coffee."
     },
     {
       question: "How can I contact customer support?",
-      answer: "You can reach our customer support team via email or through our contact form on the website."
+      answer: "You can reach our customer support team via email or through our contacts on the website."
     }
   ];
 

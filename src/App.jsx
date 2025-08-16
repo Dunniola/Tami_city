@@ -12,6 +12,7 @@ import Coffee from './pages/Products/Coffee';
 import PrivacyPolicy from './pages/footer/Privacypolicy';
 import TermsOfService from './pages/footer/TermsOfService';
 import Disclaimer from './pages/footer/Disclaimer';
+import Discover from './components/General/Discover';
 
 // Lazy load the components
 const Layout = lazy(() => import("./components/General/Layout"));
@@ -111,6 +112,10 @@ function App() {
         <Route path="/privacy-policy" element={<Suspense fallback={<div>Loading...</div>}><PrivacyPolicy/></Suspense>} />
         <Route path="/disclaimer" element={<Suspense fallback={<div>Loading...</div>}><Disclaimer/></Suspense>} />
         <Route path="/terms" element={<Suspense fallback={<div>Loading...</div>}><TermsOfService/></Suspense>} />
+
+
+        <Route path="/discover" element={<Discover />} />
+
       </Route>
     ),
     { basename: '/Tami_city/' } // This is the correct place for basename
