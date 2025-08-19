@@ -112,6 +112,9 @@ const Footer = () => {
                 <Link to={"/resources/FAQS"}>
                   <li className="hover:underline"> FAQS</li>
                 </Link>
+                <Link to={"/resources/FAQS"}>
+                  <li className="hover:underline">Place an order</li>
+                </Link>
               </ul>
             </div>
           </div>
